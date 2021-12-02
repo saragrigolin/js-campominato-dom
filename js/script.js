@@ -92,6 +92,11 @@ buttonPlay.addEventListener('click', function () {
                 for (let index = 0; index < element.length; index++) {
                     element[index].classList.add('active-red');
                 }
+                //inserisco div stop per impedire all'utente di cliccare altri quadrati
+                let stop = `
+                    <div class="stop"> 
+                    </div>`
+                grid.innerHTML += stop;
                 //esce la scritta per aver perso
                 let h4 = `
                     <div class="lost"> 
@@ -102,7 +107,7 @@ buttonPlay.addEventListener('click', function () {
                 //mostra il messaggio con un timeout di 800ms
                 setTimeout(function () {
                     grid.innerHTML += h4;
-                }, 800);
+                }, 1200);
             } else { //altrimenti aggiunge active
                 this.classList.add('active');
             }
