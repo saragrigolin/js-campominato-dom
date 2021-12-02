@@ -34,6 +34,7 @@ buttonPlay.addEventListener('click', function () {
     let col = 0;
     let numbers = [];
     let blackListNumbers = [];
+    let squareCounter = [];
     
 
     //in base al livello di difficoltà, cambiano le colonne e le righe e i numeri che equivalgono alle bombe
@@ -96,7 +97,12 @@ buttonPlay.addEventListener('click', function () {
                 let stop = `
                     <div class="stop"> 
                     </div>`
+                let counter = `
+                    <div class="squareCounter"> 
+                        <span>Hai indovinato ${squareCounter.length} tentativi.</span>
+                    </div>`
                 grid.innerHTML += stop;
+                grid.innerHTML += counter;
                 //esce la scritta per aver perso
                 let h4 = `
                     <div class="lost"> 
@@ -110,6 +116,8 @@ buttonPlay.addEventListener('click', function () {
                 }, 1200);
             } else { //altrimenti aggiunge active
                 this.classList.add('active');
+                squareCounter.push(square);
+                console.log(squareCounter);
             }
         })
     }
