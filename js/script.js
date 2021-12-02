@@ -96,14 +96,14 @@ buttonPlay.addEventListener('click', function () {
 
                 }
                 //impedisco all'utente di cliccare altri quadrati
-                grid.replaceWith(grid.cloneNode(true));
+                let stop = `
+                    <div class="stop"> 
+                    </div>`
+                grid.innerHTML += stop;
 
-                //secondo metodo per impedire all'utente di cliccare altri quadrati
-                // let stop = `
-                //     <div class="stop"> 
-                //     </div>`
-                // grid.innerHTML += stop;
-                
+                // secondo metodo per impedire all'utente di cliccare altri quadrati
+                // grid.replaceWith(grid.cloneNode(true));
+
                 let counter = `
                     <div class="squareCounter"> 
                         <span>Totale punteggio: ${squareCounter.length}.</span>
