@@ -101,7 +101,7 @@ buttonPlay.addEventListener('click', function () {
                     </div>`
                 let counter = `
                     <div class="squareCounter"> 
-                        <span>Hai indovinato ${squareCounter.length} tentativi.</span>
+                        <span>Totale punteggio: ${squareCounter.length}.</span>
                     </div>`
                 grid.innerHTML += stop;
                 grid.innerHTML += counter;
