@@ -48,7 +48,7 @@ buttonPlay.addEventListener('click', function () {
         case 'intermediate':
             row = 9;
             col = 9;
-            blackListNumbers = getRandomIntInclusive(1, 100);
+            blackListNumbers = getRandomIntInclusive(1, 81);
             console.log(blackListNumbers);
             break;
         case 'difficult':
@@ -90,8 +90,10 @@ buttonPlay.addEventListener('click', function () {
 
                 //aggiunge classe active-red a tutti i black-list
                 let element = document.querySelectorAll('.black-list');
+                console.log(element);
                 for (let index = 0; index < element.length; index++) {
                     element[index].classList.add('active-red');
+
                 }
                 //inserisco div stop per impedire all'utente di cliccare altri quadrati
                 let stop = `
@@ -117,7 +119,17 @@ buttonPlay.addEventListener('click', function () {
             } else { //altrimenti aggiunge active
                 this.classList.add('active');
                 squareCounter.push(square);
-                console.log(squareCounter);
+                console.log(squareCounter.length);
+                if (squareCounter.length == (numberSquare - blackListNumbers.length)) {
+                    let h4Win = `
+                    <div class="lost"> 
+                        <h4>Bravo, hai vinto! Vuoi fare un'altra partita?</h4>
+                        <button class="btn-blue" type="submit" onClick="refreshPage()">Gioca di nuovo</button>
+                    </div>`;
+                    setTimeout(function () {
+                        grid.innerHTML += h4Win;
+                    }, 1200);
+                }
             }
         })
     }
