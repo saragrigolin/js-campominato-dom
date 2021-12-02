@@ -96,13 +96,13 @@ buttonPlay.addEventListener('click', function () {
 
                 }
                 //impedisco all'utente di cliccare altri quadrati
-                // let stop = `
-                //     <div class="stop"> 
-                //     </div>`
-                // grid.innerHTML += stop;
+                let stop = `
+                    <div class="stop"> 
+                    </div>`
+                grid.innerHTML += stop;
 
                 // secondo metodo per impedire all'utente di cliccare altri quadrati
-                grid.replaceWith(grid.cloneNode(true));
+                // grid.replaceWith(grid.cloneNode(true));
 
                 //esce la scritta per aver perso
                 let h4 = `
