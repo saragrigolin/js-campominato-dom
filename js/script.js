@@ -95,11 +95,11 @@ buttonPlay.addEventListener('click', function () {
                     element[index].classList.add('active-red');
 
                 }
-                //impedisco all'utente di cliccare altri quadrati
-                let stop = `
-                    <div class="stop"> 
-                    </div>`
-                grid.innerHTML += stop;
+                //impedisco all'utente di cliccare altri quadrati (in realtà non serve perché inserendo il counter sotto si blocca)
+                // let stop = `
+                //     <div class="stop"> 
+                //     </div>`
+                // grid.innerHTML += stop;
 
                 // secondo metodo per impedire all'utente di cliccare altri quadrati
                 // grid.replaceWith(grid.cloneNode(true));
