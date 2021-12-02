@@ -79,6 +79,15 @@ main {
     position: relative;
 }
 
+.stop {
+    background-color: transparent;
+    position: absolute;
+    width: 65vh;
+    height: 65vh;
+    top: 0;
+    left: 0;
+}
+
 .grid h2 {
     padding: 2em;
     text-align: center;
