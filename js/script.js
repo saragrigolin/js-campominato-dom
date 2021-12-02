@@ -95,20 +95,15 @@ buttonPlay.addEventListener('click', function () {
                     element[index].classList.add('active-red');
 
                 }
-                //impedisco all'utente di cliccare altri quadrati (in realtà non serve perché inserendo il counter sotto si blocca)
+                //impedisco all'utente di cliccare altri quadrati
                 // let stop = `
                 //     <div class="stop"> 
                 //     </div>`
                 // grid.innerHTML += stop;
 
                 // secondo metodo per impedire all'utente di cliccare altri quadrati
-                // grid.replaceWith(grid.cloneNode(true));
+                grid.replaceWith(grid.cloneNode(true));
 
-                let counter = `
-                    <div class="squareCounter"> 
-                        <span>Totale punteggio: ${squareCounter.length}.</span>
-                    </div>`
-                grid.innerHTML += counter;
                 //esce la scritta per aver perso
                 let h4 = `
                     <div class="lost"> 
@@ -123,6 +118,9 @@ buttonPlay.addEventListener('click', function () {
             } else { //altrimenti aggiunge active
                 this.classList.add('active');
                 squareCounter.push(square);
+                let points = document.querySelector('.squareCounter');
+                console.log(points);
+                points.innerHTML = "Totale punteggio:" + ' ' + squareCounter.length;
                 if (squareCounter.length == (numberSquare - blackListNumbers.length)) {
                     let h4Win = `
                     <div class="lost"> 
@@ -132,12 +130,8 @@ buttonPlay.addEventListener('click', function () {
                     setTimeout(function () {
                         grid.innerHTML += h4Win;
                     }, 1200);
-                    let counter = `
-                    <div class="squareCounter"> 
-                        <span>Totale punteggio: ${squareCounter.length}.</span>
-                    </div>`
-                    grid.innerHTML += counter;
                 }
+                
             }
         })
     }
