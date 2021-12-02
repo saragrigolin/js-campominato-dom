@@ -95,15 +95,19 @@ buttonPlay.addEventListener('click', function () {
                     element[index].classList.add('active-red');
 
                 }
-                //inserisco div stop per impedire all'utente di cliccare altri quadrati
-                let stop = `
-                    <div class="stop"> 
-                    </div>`
+                //impedisco all'utente di cliccare altri quadrati
+                grid.replaceWith(grid.cloneNode(true));
+
+                //secondo metodo per impedire all'utente di cliccare altri quadrati
+                // let stop = `
+                //     <div class="stop"> 
+                //     </div>`
+                // grid.innerHTML += stop;
+                
                 let counter = `
                     <div class="squareCounter"> 
                         <span>Totale punteggio: ${squareCounter.length}.</span>
                     </div>`
-                grid.innerHTML += stop;
                 grid.innerHTML += counter;
                 //esce la scritta per aver perso
                 let h4 = `
@@ -119,7 +123,6 @@ buttonPlay.addEventListener('click', function () {
             } else { //altrimenti aggiunge active
                 this.classList.add('active');
                 squareCounter.push(square);
-                console.log(squareCounter.length);
                 if (squareCounter.length == (numberSquare - blackListNumbers.length)) {
                     let h4Win = `
                     <div class="lost"> 
@@ -129,6 +132,11 @@ buttonPlay.addEventListener('click', function () {
                     setTimeout(function () {
                         grid.innerHTML += h4Win;
                     }, 1200);
+                    let counter = `
+                    <div class="squareCounter"> 
+                        <span>Totale punteggio: ${squareCounter.length}.</span>
+                    </div>`
+                    grid.innerHTML += counter;
                 }
             }
         })
